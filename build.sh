@@ -1,5 +1,24 @@
 #! /bin/sh
 
+topic=${1}
+
+if [ ! -z $topic ] 
+then
+    base="markdown"
+    topic_dir="links/$topic"
+    topic_page="$topic_dir/$topic.html"
+    [ -d $topic_dir ] || mkdir $topic_dir
+
+    # If the topic page doesn't exist, copy in template and 
+    # create link in index.
+    if [ ! -f $topic_page ] 
+    then
+        printf "\n[%s](./%s)\n" $topic $topic_page >> markdown/index
+        cp $base/template/template $base/$topic_dir/$topic
+    fi
+    $EDITOR $base/$topic_dir/$topic
+fi
+
 ( cd markdown
 
 htmlbase="../html"
