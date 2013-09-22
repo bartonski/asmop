@@ -1,52 +1,70 @@
-SMOP
-====
+ASMOP
+=====
 
 Concept
 -------
 
-SMOP stands for "Small Matter Of Programming".
+ASMOP stands for "A Small Matter Of Programming".
 
 Computer programming has a number of large challenges that lie outside of coding:
 
 * Design of the program
-* Determining the balance between abstracton and readability
+* Determining the balance between abstraction and readability
 * Keeping documentation up to date
 * Creating re-usable code which gets used because people can find it
-* Keeping implementations in different programming languages in synch
+* Keeping implementations in different programming languages in sync
 * Communicating the concepts about what the code is supposed to do
 
-SMOP is a framework for creating software and libraries where the design, definition of abstract concepts and documentation -- both for new users and people seeking reference, are all located in a wiki-like tree of markdown formatted files. The structure and contents of this tree informs individual implementations of the software.
+ASMOP is a framework for de-coupling software design, testing and documentation from implementation. It uses a wiki-like tree of markdown formatted files to help define abstract concepts and documentation for both new users and those looking for reference.  The structure and contents of this tree informs individual implementations of the software.
 
-SMOP is intended to be lightweight and to provide enough structure to be useful, but not so much as to interfere with the implementation of software in different programming languages or environments.
+ASMOP is intended to be lightweight and to provide enough structure to be useful, but not so much as to interfere with the implementation of software in different programming languages or environments.
+
+Using ASMOP should amortize the cost of design, testing and documentation across multiple implementations of the software.
 
 Discovery Documentation
 -----------------------
 
-The SMOP software should take a template markdown file, copy it to a specified location, and create a link to it from an index file. The template contains the following sections:
+The ASMOP software should take a template markdown file, copy it to a specified location, and create a link to it from an index file. The template contains the following sections:
 
-Title
+**Title**
 :    The name of the program or project being being documented.
 
-Concept
+**Concept**
 :    The idea or group of ideas governing the software being developed -- The 'thing' in the phrase 'Do one thing well'.
 
-Discovery Documentation
-:    The entry point for new users of the software. After reading this section, a new user should have some idea of what the software is used for, where it fits in a larger framework, and where to get more detailed information.
+**Discovery Documentation**
+:    The entry point for new users of the software. After reading this section, a new user should have some idea of what the software is used for, where it fits in a larger framework, and where to get more detailed information
 
-Reference Documentation
+**Conventions**
+:    Document the philosophy of the software, and how that informs its default behavior
+
+**Reference Documentation**
 :    The nuts and bolts documentation; it should cover any implemented API, and command line switches, applicable standards and known limitations
 
-Test
+**Design**
+:    Documents the software design at an algorithm level
+
+**Test**
 :    A pointer to a TAP test suite that each implementation must pass
 
-Implimentatons
-:    A pointer to the implementation of the software in a variety of programming languages
+**Implementations**
+:    A pointer to the implementation of the software in a variety of programming languages. Should contain pointers to the implementation of software within the ASMOP package as well as any downstream repositories, e.g. CPAN, PEAR.
 
-Orthogonal Concepts
-:    Related concepts, which should not be implimented in this software.
+**Orthogonal Concepts**
+:    Related concepts, which should *not* be implemented in this software.
+
+**Conventions**
+-----------
+
+TODO
 
 Reference Documentation
 -----------------------
+
+TODO
+
+Design
+------
 
 TODO
 
@@ -55,11 +73,10 @@ Test
 
 TODO
 
-Implimentatons
+Implementations
 --------------
 
 TODO
-
 
 Orthogonal Concepts
 -------------------

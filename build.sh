@@ -2,36 +2,47 @@
 
 topic=${1}
 
+# If a topic exists, edit its markdown page.
 if [ ! -z $topic ] 
 then
     base="markdown"
     topic_dir="links/$topic"
-    topic_page="$topic_dir/$topic.html"
+    topic_page="$base/$topic_dir/$topic"
+    topic_html="$topic_dir/$topic.html"
     [ -d $topic_dir ] || mkdir $topic_dir
 
     # If the topic page doesn't exist, copy in template and 
     # create link in index.
     if [ ! -f $topic_page ] 
     then
-        printf "\n[%s](./%s)\n" $topic $topic_page >> markdown/index
-        cp $base/template/template $base/$topic_dir/$topic
+        printf "\n[%s](./%s)\n" $topic $topic_html >> markdown/index
+        cp $base/template/template $topic_page
     fi
-    $EDITOR $base/$topic_dir/$topic
+    $EDITOR $topic_page
 fi
 
+# Create html documentation
 ( cd markdown
 
 htmlbase="../html"
+markdown="pandoc"
+markdown_options="-f markdown -t html"
+
+# Start with a clean html directory
 rm -rf $htmlbase
+
+# Create the directory tree
 find . -type d | sed 's/^\.\/*//' | while read dir
 do 
     htmldir="$htmlbase/$dir"
+    # TODO: how portable is mkdir -p?
     [ -d $htmldir ] || mkdir -p $htmldir
 done
 
+# Render markdown files to html.
 find . -type f | sed 's/^\.\/*//' | while read file
 do
-    hsmarkdown $file > "../html/$file.html"
+    $markdown $markdown_options $file > "../html/$file.html"
 done )
 
 xdg-open html/index.html
