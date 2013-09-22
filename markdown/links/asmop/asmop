@@ -24,7 +24,19 @@ Using ASMOP should amortize the cost of design, testing and documentation across
 Discovery Documentation
 -----------------------
 
-The ASMOP software should take a template markdown file, copy it to a specified location, and create a link to it from an index file. The template contains the following sections:
+    implementations/posix_shell/asmop TOPIC
+   
+If called with TOPIC
+
+* copy template to 'topic file'
+* open the topic file in $EDITOR
+* create a link to the topic in the index markdown file
+
+Traverse 'markdown' directory, render all markdown files to HTML in parallel 'html' directory tree.
+
+Conventions
+-----------
+The template contains the following sections:
 
 **Title**
 :    The name of the program or project being being documented.
@@ -53,40 +65,41 @@ The ASMOP software should take a template markdown file, copy it to a specified 
 **Orthogonal Concepts**
 :    Related concepts, which should *not* be implemented in this software.
 
-Conventions
------------
-
-TODO
-
 Reference Documentation
 -----------------------
-
-TODO
 
 Design
 ------
 
 #. If a topic exists, edit its markdown page.
     #. If the topic page doesn't exist, copy in template and create link in index.
-#. Create html documentation
+#. Create HTML documentation
     #. Start with a clean html directory
     #. Create the directory tree
-    #. Render markdown files to html.
+    #. Render markdown files to HTML.
 
 Test
 ----
 
-TODO
-
 Implementations
 ---------------
-[posix_shell](../../../implementations/posix_shell/)
-
-TODO
+* [posix_shell](../../../implementations/posix_shell/)
+    * Dependency on 'pandoc'
 
 Orthogonal Concepts
 -------------------
 
-TODO
+To-do
+-----
 
+Populate
+
+* Orthogonal Concepts
+* Test
+* Reference Documentation
+
+Features
+
+* Create hooks to export documentation and design to individual implementations
+* Create method of propagating changes in template to already created topic pages.
 

@@ -2,6 +2,8 @@
 
 topic=${1}
 
+SPELLCHECK='aspell -c'
+
 # If a topic exists, edit its markdown page.
 if [ ! -z $topic ] 
 then
@@ -19,6 +21,7 @@ then
         cp $base/template/template $topic_page
     fi
     $EDITOR $topic_page
+    $SPELLCHECK $topic_page
 fi
 
 # Create html documentation
