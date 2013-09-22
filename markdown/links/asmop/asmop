@@ -53,7 +53,7 @@ The ASMOP software should take a template markdown file, copy it to a specified 
 **Orthogonal Concepts**
 :    Related concepts, which should *not* be implemented in this software.
 
-**Conventions**
+Conventions
 -----------
 
 TODO
@@ -66,7 +66,12 @@ TODO
 Design
 ------
 
-TODO
+#. If a topic exists, edit its markdown page.
+    #. If the topic page doesn't exist, copy in template and create link in index.
+#. Create html documentation
+    #. Start with a clean html directory
+    #. Create the directory tree
+    #. Render markdown files to html.
 
 Test
 ----
@@ -74,7 +79,8 @@ Test
 TODO
 
 Implementations
---------------
+---------------
+[posix_shell](../../../implementations/posix_shell/)
 
 TODO
 
